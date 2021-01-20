@@ -30,7 +30,7 @@ public class GUI {
         frame = new JFrame("ANTI RAT");
 
         panel1 = new JPanel();
-        panel1.setBorder(BorderFactory.createEmptyBorder(50, 50, 50, 50));
+        panel1.setBorder(BorderFactory.createEmptyBorder(10, 50, 50, 50));
         panel1.setLayout(new GridLayout(0, 1));
 
         mainLabel = new JLabel();
@@ -38,6 +38,7 @@ public class GUI {
         mainLabel.setText("RAT CHECKER");
         mainLabel.setPreferredSize(new Dimension(250, 30));
         mainLabel.setHorizontalAlignment(JLabel.CENTER);
+        mainLabel.setVerticalAlignment(JLabel.CENTER);
         panel1.add(mainLabel);
 
         fileBoxPanel = new JPanel();
@@ -89,18 +90,19 @@ public class GUI {
         JScrollPane scrollPane = new JScrollPane(outputField);
         outputPanel.add(scrollPane);
 
-        addToOutput("Log area");
+        log("Log area");
 
         frame.add(panel1);
 
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      //  frame.setResizable(false);
+        frame.setResizable(false);
         frame.pack();
+        frame.setSize(frame.getWidth() + 200, frame.getHeight());
         frame.setVisible(true);
     }
 
-    public void addToOutput(String line){
+    public void log(String line){
         outputField.append(line + "\n");
     }
 }

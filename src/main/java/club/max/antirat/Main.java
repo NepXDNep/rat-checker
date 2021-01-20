@@ -11,6 +11,7 @@ public class Main {
     }
 
     public static void run(File file){
+        gui.log("Starting checks on " + file.getName());
 
     }
 

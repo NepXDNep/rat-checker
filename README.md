@@ -14,14 +14,22 @@ this project would never be made without references to [theia](https://github.co
 [x] - havent started<br>
 
 ### ui
-  [/] - gui <br>
-  [x] - save log to file<br>
-  [x]  - different themes<br>
+   [/] - gui <br>
+   [x] - save log to file<br>
+   [x]  - different themes<br>
 
 ### techniques
-  [x] - string deobfer <br>
-  [x] - basic functions <br>
-  [x] - webhook finder <br>
-  [x] - web connection finder <br>
-  [x] - socket finder <br>
-  [x] - more <br>
+   [x] - string deobfer <br>
+   [x] - webhook check <br>
+   [x] - web connection check <br>
+   [x] - socket check <br>
+   [x] - exit checks <br>
+   [x] - classload checks <br>
+   [x] - command check <br>
+   [x] - coord check <br>
+   [x] - file deletion check <br>
+   [x] - file check (checks for opening files) <br>
+   [x] - string checks (checks for strings with certain keywords) <br>
+   [x] - url check <br>
+   [x] - ip check <br>
+      
