@@ -32,4 +32,8 @@ this project would never be made without references to [theia](https://github.co
    [x] - string checks (checks for strings with certain keywords) <br>
    [x] - url check <br>
    [x] - ip check <br>
+   
+## Images
+
+![Gui](https://i.gyazo.com/9460ff3bd92b15f04c003b4a053c39e5.png)
       
