@@ -30,7 +30,7 @@ this project would never be made without references to [theia](https://github.co
    [x] - file deletion check <br>
    [x] - file check (checks for opening files) <br>
    [x] - string checks (checks for strings with certain keywords) <br>
-   [/] - url check <br>
+   [v] - url check <br>
    [x] - ip check <br>
    
 ## Images
