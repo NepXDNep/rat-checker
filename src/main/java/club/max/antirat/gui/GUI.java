@@ -26,7 +26,7 @@ public class GUI extends JFrame{
 
     public GUI(){
         try {
-            UIManager.setLookAndFeel(new FlatDarkLaf());
+            UIManager.setLookAndFeel(new FlatLightLaf());
         } catch (Exception e){e.printStackTrace();}
 //        frame = new JFrame("ANTI RAT");
 
@@ -76,6 +76,7 @@ public class GUI extends JFrame{
             }
         });
         fileBoxPanel.add(fileSelectButton);
+        fileSelectButton.setFocusable(false);
 
         runButton = new JButton("Run");
         runButton.setEnabled(false);
@@ -85,10 +86,12 @@ public class GUI extends JFrame{
             runButton.setText("Running...");
             Main.run(file);
         });
+        runButton.setFocusable(false);
 
         outputPanel = new JPanel();
         outputPanel.setLayout(new GridLayout(1, 1));
         outputPanel.setBorder(BorderFactory.createEmptyBorder());
+        outputPanel.setFocusable(false);
         panel1.add(outputPanel);
 
         outputField = new JTextArea();

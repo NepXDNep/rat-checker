@@ -26,8 +26,9 @@ public class Main {
         HashMap<String, ClassNode> classNodes = app.getNodes();
 
         checks = new ArrayList<>();
-        checks.add(new URLCheck(classNodes));
         checks.add(new CoordCheck(classNodes));
+        checks.add(new URLCheck(classNodes));
+
 
         for (Check check : checks){
             check.run();
