@@ -10,8 +10,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 
-public class GUI {
-    JFrame frame;
+public class GUI extends JFrame{
+    JPanel panel;
     JPanel panel1;
     JLabel mainLabel;
     JPanel fileBoxPanel;
@@ -21,17 +21,27 @@ public class GUI {
     File file;
     JPanel outputPanel;
     JTextArea outputField;
+    JButton openButton;
 
 
     public GUI(){
         try {
             UIManager.setLookAndFeel(new FlatLightLaf());
         } catch (Exception e){e.printStackTrace();}
-        frame = new JFrame("ANTI RAT");
+//        frame = new JFrame("ANTI RAT");
+
+        /*
+        panel = new JPanel();
+        panel.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
+        panel.setLayout(new GridLayout(0, 1));
+
+         */
+        setTitle("ANTI-RAT");
 
         panel1 = new JPanel();
         panel1.setBorder(BorderFactory.createEmptyBorder(10, 50, 50, 50));
         panel1.setLayout(new GridLayout(0, 1));
+        add(panel1);
 
         mainLabel = new JLabel();
         mainLabel.setFont(new Font("Arial", Font.BOLD, 20));
@@ -58,7 +68,6 @@ public class GUI {
             if (fileChooser.showOpenDialog(((Component) e.getSource())) == NativeJFileChooser.APPROVE_OPTION){
                 file = fileChooser.getSelectedFile();
                 fileIndicator.setText("File: " + file.getName());
-                frame.pack();
                 if (file.getName().endsWith(".jar")) {
                     runButton.setEnabled(true);
                 } else {
@@ -70,6 +79,7 @@ public class GUI {
 
         runButton = new JButton("Run");
         runButton.setEnabled(false);
+        runButton.setMaximumSize(getSize());
         fileBoxPanel.add(runButton);
         runButton.addActionListener(e -> {
             Main.run(file);
@@ -82,27 +92,32 @@ public class GUI {
         panel1.add(outputPanel);
 
         outputField = new JTextArea();
-    //    outputPanel.add(outputField);
         outputField.setEditable(false);
         outputField.setOpaque(true);
         outputField.setBackground(new Color(255, 255, 255));
         outputField.setForeground(new Color(0, 0, 0));
+//        outputField.setPreferredSize(new Dimension(300, 300));
         JScrollPane scrollPane = new JScrollPane(outputField);
+        scrollPane.setAutoscrolls(false);
         outputPanel.add(scrollPane);
 
         log("Log area");
 
-        frame.add(panel1);
-
-
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
-        frame.pack();
-        frame.setSize(frame.getWidth() + 200, frame.getHeight());
-        frame.setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
+        pack();
+        setSize(getWidth() + 200, getHeight() + 100);
+        setVisible(true);
     }
 
     public void log(String line){
-        outputField.append(line + "\n");
+        outputField.setText(outputField.getText() + line + "\n");
+  //      outputField.append(line + "\n");
     }
+
+    public void clear(){
+        outputField.setText("");
+    }
+
+
 }
