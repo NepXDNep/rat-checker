@@ -26,7 +26,7 @@ this project would never be made without references to [theia](https://github.co
    [x] - exit checks <br>
    [x] - classload checks <br>
    [x] - command check <br>
-   [x] - coord check <br>
+   [v] - coord check <br>
    [x] - file deletion check <br>
    [x] - file check (checks for opening files) <br>
    [x] - string checks (checks for strings with certain keywords) <br>
