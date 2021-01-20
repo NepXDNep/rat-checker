@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+    id "com.github.johnrengelman.shadow" version "6.1.0"
+}
+
+group 'club.max'
+version '0.1'
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    manifest {
+        attributes (
+                "Main-Class": "club.max.antirat.Main"
+        )
+    }
+}
+
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'com.formdev', name: 'flatlaf', version: '1.0-rc1'
+    compile "org.ow2.asm:asm:7.3.1"
+    compile "org.ow2.asm:asm-tree:7.3.1"
+    compile "org.ow2.asm:asm-commons:7.3.1"
+    compile "org.ow2.asm:asm-util:7.3.1"
+    implementation 'li.flor:native-j-file-chooser:1.6.4'
+}
+
+shadowJar {
+    dependencies {
+        include(dependency('org.ow2.asm:asm:7.3.1'))
+        include(dependency('org.ow2.asm:asm-tree:7.3.1'))
+        include(dependency('org.ow2.asm:asm-commons:7.3.1'))
+        include(dependency('org.ow2.asm:asm-util:7.3.1'))
+        include(dependency('li.flor:native-j-file-chooser:1.6.4'))
+        include(dependency('com.formdev:flatlaf:1.0-rc1'))
+
+    }
+}
+
+tasks.build.dependsOn(shadowJar)
