@@ -30,7 +30,7 @@ public class URLCheck extends Check {
             if (insn instanceof TypeInsnNode){
                 TypeInsnNode casted = ((TypeInsnNode) insn);
                 if (casted.desc.equalsIgnoreCase("java/net/URL")) {
-                    out("Found url [" + classNode.name + ": " + method.name + "]");
+                    out("Found url: [" + classNode.name + ": " + method.name + "]");
                 }
             }
         }
