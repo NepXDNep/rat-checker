@@ -18,15 +18,25 @@ public class GUI extends JFrame{
     JButton fileSelectButton;
     JLabel fileIndicator;
     JButton runButton;
+    JButton configOpener;
     File file;
     JPanel outputPanel;
     JTextArea outputField;
     JButton openButton;
 
+    ConfigGui configGui;
+
 
     public GUI(){
         try {
             UIManager.setLookAndFeel(new FlatLightLaf());
+            UIManager.put("Button.arc", 0);
+            UIManager.put("Component.arc", 0);
+            UIManager.put("CheckBox.arc", 0);
+            UIManager.put("ProgressBar.arc", 0);
+            UIManager.put("Button.innerFocusWidth", 0);
+            UIManager.put("Button.focusWidth", 0);
+
         } catch (Exception e){e.printStackTrace();}
 //        frame = new JFrame("ANTI RAT");
 
@@ -52,11 +62,11 @@ public class GUI extends JFrame{
         panel1.add(mainLabel);
 
         fileBoxPanel = new JPanel();
-        fileBoxPanel.setLayout(new GridLayout(3, 1));
+        fileBoxPanel.setLayout(new GridLayout(4, 1));
         fileBoxPanel.setBorder(BorderFactory.createEmptyBorder());
         panel1.add(fileBoxPanel);
 
-        fileIndicator = new JLabel("Please choose a file");
+        fileIndicator = new JLabel(" Please choose a file");
         fileIndicator.setBackground(new Color(200, 200, 200));
         fileIndicator.setForeground(new Color(13, 13, 13));
         fileIndicator.setOpaque(true);
@@ -67,7 +77,7 @@ public class GUI extends JFrame{
             NativeJFileChooser fileChooser = new NativeJFileChooser();
             if (fileChooser.showOpenDialog(((Component) e.getSource())) == NativeJFileChooser.APPROVE_OPTION){
                 file = fileChooser.getSelectedFile();
-                fileIndicator.setText("File: " + file.getName());
+                fileIndicator.setText(" File: " + file.getName());
                 if (file.getName().endsWith(".jar")) {
                     runButton.setEnabled(true);
                 } else {
@@ -87,6 +97,15 @@ public class GUI extends JFrame{
             Main.run(file);
         });
         runButton.setFocusable(false);
+
+        configGui = new ConfigGui();
+        configOpener = new JButton("Edit config");
+        configOpener.addActionListener(e -> {
+            configGui.setVisible(true);
+        });
+        configOpener.setFocusable(false);
+        fileBoxPanel.add(configOpener);
+
 
         outputPanel = new JPanel();
         outputPanel.setLayout(new GridLayout(1, 1));
@@ -118,6 +137,19 @@ public class GUI extends JFrame{
 
     public void clear(){
         outputField.setText("");
+    }
+
+    public void updateUI(){
+        panel1.updateUI();
+        mainLabel.updateUI();
+        fileBoxPanel.updateUI();
+        fileSelectButton.updateUI();
+        fileIndicator.updateUI();
+        runButton.updateUI();
+        configOpener.updateUI();
+        outputPanel.updateUI();
+        outputField.updateUI();
+//        openButton.updateUI();
     }
 
 
