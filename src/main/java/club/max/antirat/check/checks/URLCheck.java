@@ -23,18 +23,15 @@ public class URLCheck extends Check {
     }
 
     @Override
-    public void runOnMethod(MethodNode method) {
-        super.runOnMethod(method);
-        System.out.println("Checking method: " + method.name);
- //       out(method.name + " " + method.desc);
+    public void runOnMethod(MethodNode method, ClassNode classNode) {
+        super.runOnMethod(method, classNode);
         for (AbstractInsnNode insn : method.instructions){
 
             if (insn instanceof TypeInsnNode){
                 TypeInsnNode casted = ((TypeInsnNode) insn);
                 if (casted.desc.equalsIgnoreCase("java/net/URL")) {
-                    out("Found url [" + method.getClass().getName() + ": " + method.name + "]");
+                    out("Found url [" + classNode.name + ": " + method.name + "]");
                 }
-                System.out.println(casted.desc);
             }
         }
     }

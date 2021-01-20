@@ -39,11 +39,11 @@ public class Check {
    //     out(className);
         for (MethodNode methodNode : node.methods){
    //         out(methodNode.name + " " + methodNode.desc);
-            runOnMethod(methodNode);
+            runOnMethod(methodNode, node);
         }
     }
 
-    public void runOnMethod(MethodNode method){
+    public void runOnMethod(MethodNode method, ClassNode classNode){
 
     }
 }
