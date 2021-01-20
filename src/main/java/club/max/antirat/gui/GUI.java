@@ -26,7 +26,7 @@ public class GUI extends JFrame{
 
     public GUI(){
         try {
-            UIManager.setLookAndFeel(new FlatLightLaf());
+            UIManager.setLookAndFeel(new FlatDarkLaf());
         } catch (Exception e){e.printStackTrace();}
 //        frame = new JFrame("ANTI RAT");
 
@@ -82,8 +82,8 @@ public class GUI extends JFrame{
         runButton.setMaximumSize(getSize());
         fileBoxPanel.add(runButton);
         runButton.addActionListener(e -> {
-            Main.run(file);
             runButton.setText("Running...");
+            Main.run(file);
         });
 
         outputPanel = new JPanel();
@@ -94,8 +94,6 @@ public class GUI extends JFrame{
         outputField = new JTextArea();
         outputField.setEditable(false);
         outputField.setOpaque(true);
-        outputField.setBackground(new Color(255, 255, 255));
-        outputField.setForeground(new Color(0, 0, 0));
 //        outputField.setPreferredSize(new Dimension(300, 300));
         JScrollPane scrollPane = new JScrollPane(outputField);
         scrollPane.setAutoscrolls(false);
@@ -111,8 +109,8 @@ public class GUI extends JFrame{
     }
 
     public void log(String line){
-        outputField.setText(outputField.getText() + line + "\n");
-  //      outputField.append(line + "\n");
+  //      outputField.setText(outputField.getText() + line + "\n");
+        outputField.append(line + "\n");
     }
 
     public void clear(){
