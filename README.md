@@ -32,6 +32,7 @@ this project would never be made without references to [theia](https://github.co
    [x] - string checks (checks for strings with certain keywords) <br>
    [v] - url check <br>
    [x] - ip check <br>
+   [v] - system checks (system.getProperty and system.getenv) <br>
    
 ## Images
 

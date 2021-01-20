@@ -2,6 +2,7 @@ package club.max.antirat;
 
 import club.max.antirat.check.Check;
 import club.max.antirat.check.checks.CoordCheck;
+import club.max.antirat.check.checks.SystemCheck;
 import club.max.antirat.check.checks.URLCheck;
 import club.max.antirat.gui.GUI;
 import org.objectweb.asm.tree.ClassNode;
@@ -27,6 +28,7 @@ public class Main {
 
         checks = new ArrayList<>();
         checks.add(new CoordCheck(classNodes));
+        checks.add(new SystemCheck(classNodes));
         checks.add(new URLCheck(classNodes));
 
 
