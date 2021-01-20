@@ -25,7 +25,7 @@ this project would never be made without references to [theia](https://github.co
    [x] - socket check <br>
    [x] - exit checks <br>
    [x] - classload checks <br>
-   [x] - command check <br>
+   [v] - process check (command check) <br>
    [v] - coord check <br>
    [x] - file deletion check <br>
    [x] - file check (checks for opening files) <br>
