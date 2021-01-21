@@ -23,12 +23,12 @@ this project would never be made without references to [theia](https://github.co
    [x] - webhook check <br>
    [x] - web connection check <br>
    [x] - socket check <br>
-   [x] - exit checks <br>
+   [v] - exit checks <br>
    [x] - classload checks <br>
    [v] - process check (command check) <br>
    [v] - coord check <br>
    [x] - file deletion check <br>
-   [x] - file check (checks for opening files) <br>
+   [v] - file check (checks for opening files) <br>
    [x] - string checks (checks for strings with certain keywords) <br>
    [v] - url check <br>
    [x] - ip check <br>
