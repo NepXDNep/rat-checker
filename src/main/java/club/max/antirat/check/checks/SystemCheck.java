@@ -22,11 +22,9 @@ public class SystemCheck extends Check {
         super.runOnMethod(method, classNode);
         for (AbstractInsnNode insn : method.instructions){
             if (insn instanceof MethodInsnNode) {
-
                 if (((MethodInsnNode) insn).name.equalsIgnoreCase("getProperty") || ((MethodInsnNode) insn).name.equalsIgnoreCase("getenv") || ((MethodInsnNode) insn).name.equalsIgnoreCase("getProperties")){
                     out("Found system property/env method: [" + classNode.name + ": " + method.name + ": " + ((MethodInsnNode) insn).name + "]");
                 }
-        //        out("Found  reference: [" + classNode.name + ": " + method.name + "]");
             }
         }
     }

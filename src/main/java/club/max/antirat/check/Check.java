@@ -12,6 +12,7 @@ public class Check {
     public HashMap<String, ClassNode> nodes;
     public HashMap<String, MethodNode> methods;
     public String checkName;
+    public boolean enabled = true;
 
     public Check(HashMap<String, ClassNode> nodes){
         this.nodes = nodes;
@@ -29,10 +30,12 @@ public class Check {
     }
 
     public void run(){
-        nodes.forEach((s, n) -> {
-            runOnClass(s, n);
-        });
-        out("FINISHED CHECK");
+        if (enabled) {
+            nodes.forEach((s, n) -> {
+                runOnClass(s, n);
+            });
+            out("FINISHED CHECK");
+        }
     }
 
     public void runOnClass(String className, ClassNode node){
@@ -45,5 +48,9 @@ public class Check {
 
     public void runOnMethod(MethodNode method, ClassNode classNode){
 
+    }
+
+    public void setNodes(HashMap<String, ClassNode> nodes) {
+        this.nodes = nodes;
     }
 }
